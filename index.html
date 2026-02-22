@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Momentum App</title>
+
+  <link rel="stylesheet" href="./css/tokens.css" />
+  <link rel="stylesheet" href="./css/fonts.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+
+  <link rel="stylesheet" href="./css/components/buttons.css" />
+  <link rel="stylesheet" href="./css/components/cards.css" />
+  <link rel="stylesheet" href="./css/components/icons.css" />
+
+  <link rel="stylesheet" href="./css/pages/main.css" />
+  <link rel="stylesheet" href="./css/pages/weather.css" />
+</head>
+
+<body>
+  <div class="appBg" aria-hidden="true"></div>
+
+  <input id="bgInput" type="file" accept="image/*" hidden />
+
+  <main class="dash">
+    <section class="dashPanel" aria-label="Dashboard">
+      <header class="dashHeader">
+        <div class="dashHeader__left">
+          <span class="badgeStar" aria-hidden="true">★</span>
+          <div>
+            <h1 id="greeting" class="dashTitle">Welcome, Nomad !</h1>
+            <nav class="dashNav" aria-label="quick links">
+              <a id="authLink" href="./login.html">Login</a>
+              <span aria-hidden="true">·</span>
+              <a href="./todo.html">Todo</a>
+              <span aria-hidden="true">·</span>
+              <a href="./diary.html">Diary</a>
+              <span aria-hidden="true">·</span>
+              <a href="./drawing.html">Drawing</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <div class="gridTop">
+        <!-- Clock -->
+        <article id="clock-card" class="card card--clock">
+          <div class="cardHead">
+            <div class="iconBlob" aria-hidden="true">
+              <img src="./img/clock.png" alt="" class="iconImg iconImg--md" />
+            </div>
+            <div>
+              <p class="kicker">현재 시간</p>
+              <h2 id="clock" class="time">00:00:00</h2>
+              <p id="clock-date" class="sub">0000-00-00</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Todo -->
+        <article class="card">
+          <div class="cardRow">
+            <div>
+              <h3 class="cardTitle">ToDo</h3>
+              <p class="cardSub">할 일 관리</p>
+              <a class="btn btn--dark btn--sm" href="./todo.html">바로 가기</a>
+            </div>
+
+            <div class="miniIllust" aria-hidden="true">
+              <img src="./img/todo.png" alt="" class="iconImg iconImg--lg" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Weather -->
+        <article id="weather-card" class="card card--weather">
+          <div id="weather" class="weatherBox" aria-label="weather">
+            <div class="weatherTop">
+              <div class="weatherCity">위치 확인중…</div>
+              <div class="weatherIcon" aria-hidden="true"></div>
+            </div>
+
+            <div class="weatherTemp">--°</div>
+            <div class="weatherDesc">--</div>
+            <div class="weatherHL">H: --° L: --°</div>
+
+            <div class="weatherMeta">
+              <span class="weatherMetaItem">습도 <b class="weatherHum">--%</b></span>
+              <span class="weatherMetaItem">바람 <b class="weatherWind">--m/s</b></span>
+            </div>
+          </div>
+
+          <div class="weatherActions">
+            <button id="weather-refresh" class="btn btn--dark btn--sm" type="button">날씨 새로고침</button>
+          </div>
+        </article>
+
+        <!-- Background -->
+        <article id="bg-card" class="card card--bg">
+          <div class="bgHead">
+            <div>
+              <h3 class="cardTitle">배경</h3>
+              <p class="cardSub">랜덤 배경 이미지 · 오버레이</p>
+            </div>
+          </div>
+
+          <div class="bgPreview" aria-hidden="true">
+            <span class="bgPreview__label">◆ <span id="bg-filename-2">random-background.jpg</span></span>
+
+            <div class="bgOverlay">
+              <span class="bgPill" id="bg-filename">random-background.jpg</span>
+              <div class="bgActions">
+                <button id="bg-download" class="btn btn--dark btn--sm" type="button">배경 가져오기</button>
+                <button id="bg-refresh" class="btn btn--light btn--sm" type="button">배경 새로고침</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="dashFooterText">Enjoy your Life! ✨</p>
+
+      <div class="gridBottom">
+        <article class="card card--wide">
+          <div class="cardRow">
+            <div class="miniIcon" aria-hidden="true">
+              <img src="./img/diary.png" alt="" class="iconImg" />
+            </div>
+            <div class="grow">
+              <h3 class="cardTitle">Diary <span class="muted">오늘의 기록</span></h3>
+              <p class="cardBody">오늘 날씨는 쌀쌀하지만, 따뜻한 차를 마시며 하루를 시작했어요.</p>
+            </div>
+            <a class="btn btn--dark btn--sm" href="./diary.html">작성하기 <span aria-hidden="true">›</span></a>
+          </div>
+        </article>
+
+        <article class="card card--wide">
+          <div class="cardRow">
+            <div class="miniIcon" aria-hidden="true">
+              <img src="./img/paint.png" alt="" class="iconImg" />
+            </div>
+            <div class="grow">
+              <h3 class="cardTitle">Drawing <span class="muted">그림판</span></h3>
+              <p class="cardBody">그림을 그려보세요!</p>
+            </div>
+            <a class="btn btn--dark btn--sm" href="./drawing.html">바로 가기</a>
+          </div>
+        </article>
+      </div>
+
+    </section>
+  </main>
+  <script type="module" src="./js/app/index.js"></script>
+</body>
+
+</html>

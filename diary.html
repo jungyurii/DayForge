@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendar Diary</title>
+
+  <link rel="stylesheet" href="./css/tokens.css" />
+  <link rel="stylesheet" href="./css/fonts.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+
+  <link rel="stylesheet" href="./css/components/buttons.css" />
+  <link rel="stylesheet" href="./css/components/icons.css" />
+
+  <link rel="stylesheet" href="./css/pages/diary.css" />
+  <link rel="stylesheet" href="./css/pages/diary.popover.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="calPage">
+  <div class="appBg" aria-hidden="true"></div>
+
+  <main class="calWrap" aria-label="Calendar Diary">
+    <section class="calWindow" role="application" aria-label="Calendar window">
+      <header class="calTitlebar">
+        <div class="calTitlebar__left">
+          <span class="calAppIcon" aria-hidden="true"></span>
+          <strong class="calTitle">Diary</strong>
+        </div>
+
+        <div class="calTitlebar__right">
+          <button class="winBtn" type="button" aria-label="minimize">–</button>
+          <button class="winBtn winBtn--close" type="button" aria-label="close">×</button>
+        </div>
+      </header>
+
+      <div class="calBody">
+        <div class="calPaper">
+          <aside class="monthTabs" aria-label="month tabs">
+            <button class="tab" data-month="0">1</button>
+            <button class="tab" data-month="1">2</button>
+            <button class="tab" data-month="2">3</button>
+            <button class="tab" data-month="3">4</button>
+            <button class="tab" data-month="4">5</button>
+            <button class="tab" data-month="5">6</button>
+            <button class="tab" data-month="6">7</button>
+            <button class="tab" data-month="7">8</button>
+            <button class="tab" data-month="8">9</button>
+            <button class="tab" data-month="9">10</button>
+            <button class="tab" data-month="10">11</button>
+            <button class="tab" data-month="11">12</button>
+          </aside>
+
+          <!-- main page -->
+          <section class="page" aria-label="Monthly calendar page">
+            <div class="spread">
+              <!-- LEFT PANE -->
+              <aside class="leftPane" aria-label="left panel">
+                <div class="leftHead">
+                  <div class="leftMonth">
+                    <span class="leftMonthNum" id="leftMonthNum">1</span>
+                    <span class="leftMonthLabel" id="leftMonthLabel">January</span>
+                  </div>
+                  <div class="leftYear" id="leftYear">2026</div>
+                </div>
+
+                <!-- Tools -->
+                <div class="leftCard leftCard--tools">
+                  <div class="leftCard__title">Tools</div>
+
+                  <div class="toolbar toolbar--left" aria-label="tools">
+                    <button id="tool-pointer" class="chip" type="button" title="Pointer">
+                      <i class="fa-solid fa-arrow-pointer"></i>
+                    </button>
+
+                    <button id="tool-pen" class="chip" type="button" title="Pen">
+                      <i class="fa-solid fa-pen"></i>
+                    </button>
+
+                    <button id="tool-hi" class="chip" type="button" title="Highlighter">
+                      <i class="fa-solid fa-highlighter"></i>
+                    </button>
+
+                    <button id="tool-text" class="chip" type="button" title="Text">
+                      <i class="fa-regular fa-comment"></i>
+                    </button>
+
+                    <button id="tool-photo" class="chip" type="button" title="Add Photo">
+                      <i class="fa-solid fa-file-image"></i>
+                    </button>
+
+                    <button id="tool-erase" class="chip" type="button" title="Eraser">
+                      <i class="fa-solid fa-eraser"></i>
+                    </button>
+
+                    <input id="photoInput" type="file" accept="image/*" hidden />
+                  </div>
+                </div>
+
+                <div class="leftCard">
+                  <div class="leftCard__title">이번 달 메모</div>
+                  <textarea id="monthMemo" class="leftMemo" placeholder="이번 달 목표를 기록해 보세요!"></textarea>
+                </div>
+              </aside>
+
+              <section class="rightPane" aria-label="calendar">
+                <div class="pageTop">
+                  <div class="monthBadge" aria-label="month badge">
+                    <span id="monthNum">1</span>
+                    <span class="monthLabel">January</span>
+                  </div>
+
+                  <div class="topRight">
+                    <span class="yearTag" id="yearTag">2026</span>
+                  </div>
+                </div>
+
+                <!-- 캘린더 -->
+                <div id="sheet" class="sheet">
+                  <div id="dowRow" class="dowRow" aria-hidden="true">
+                    <div class="dow sun">SUN</div>
+                    <div class="dow">MON</div>
+                    <div class="dow">TUE</div>
+                    <div class="dow">WED</div>
+                    <div class="dow">THU</div>
+                    <div class="dow">FRI</div>
+                    <div class="dow sat">SAT</div>
+                  </div>
+
+                  <div id="grid" class="grid" aria-label="calendar grid"></div>
+
+                  <!-- 낙서/사진 레이어 -->
+                  <canvas id="doodle" class="doodle" aria-label="doodle layer"></canvas>
+                  <div id="photoUi" class="photoUiLayer" aria-hidden="true"></div>
+                </div>
+
+                <div class="bottomBar">
+                  <div class="miniNote">Enjoy your Life! ✨</div>
+                  <div class="actions">
+                    <button id="resetAll" class="btn btn--dark btn--sm" type="button">Reset Month</button>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toolPalette" class="toolPalette" hidden aria-hidden="true">
+    <div class="toolPalette__bubble">
+      <div class="toolPalette__head">
+        <div id="toolPaletteTitle" class="toolPalette__title">Pen Color</div>
+        <button id="toolPaletteClose" class="toolPalette__close" type="button" aria-label="close">×</button>
+      </div>
+      <div id="toolPaletteRow" class="toolPalette__row" aria-label="color options"></div>
+    </div>
+  </div>
+
+<script type="module" src="./js/app/diary.js"></script>
+</body>
+</html>

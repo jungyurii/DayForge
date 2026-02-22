@@ -1,0 +1,99 @@
+.toolPalette{
+  position: fixed;
+  inset: auto auto auto auto;
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+.toolPalette[hidden]{ display:none !important; }
+
+.toolPalette__bubble{
+  --arrow-x: 50%;
+  position: relative;
+  padding: 10px 12px 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.94);
+  box-shadow: 0 18px 34px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.toolPalette__bubble::before{
+  content:"";
+  position:absolute;
+  top: -7px;
+  left: var(--arrow-x);
+  transform: translateX(-50%) rotate(45deg);
+  width: 14px;
+  height: 14px;
+  background: rgba(255,255,255,0.94);
+  border-left: 1px solid rgba(0,0,0,0.10);
+  border-top: 1px solid rgba(0,0,0,0.10);
+}
+
+.toolPalette__head{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.toolPalette__title{
+  font-weight: 1000;
+  font-size: 14px;
+  color: rgba(40,30,30,0.78);
+}
+
+.toolPalette__close{
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.65);
+  cursor: pointer;
+  font-weight: 1000;
+  line-height: 1;
+}
+
+.toolPalette__row{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  padding: 6px;
+
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.toolPalette__row::-webkit-scrollbar{ display:none; }
+
+.toolSwatch{
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  cursor: pointer;
+  box-shadow: 0 10px 16px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.55);
+  flex: 0 0 auto;
+  position: relative;
+}
+
+.toolSwatch.isSelected::after{
+  content:"";
+  position:absolute;
+  inset: -4px;
+  border-radius: 999px;
+  outline: 3px solid rgba(255,140,60,0.55);
+}
+
+.toolPalette{
+  animation: toolPalIn .12s ease-out;
+}
+@keyframes toolPalIn{
+  from{ transform: translateY(-4px); opacity: 0; }
+  to{ transform: translateY(0); opacity: 1; }
+}

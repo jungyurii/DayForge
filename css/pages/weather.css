@@ -1,0 +1,96 @@
+.card--weather {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.weatherBox {
+    border-radius: 18px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.18);
+    color: rgba(255, 255, 255, 0.92);
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+
+    /* 기본 배경 */
+    background-size: cover;
+    background-position: center;
+}
+
+.weatherTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.weatherCity {
+    font-size: 18px;
+    font-weight: 900;
+    opacity: .95;
+}
+
+.weatherIcon {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.weatherIcon img {
+    width: 34px;
+    height: 34px;
+    display: block;
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.25));
+}
+
+.weatherTemp {
+    font-size: 54px;
+    font-weight: 1000;
+    line-height: 1;
+    margin-top: 6px;
+}
+
+.weatherDesc {
+    font-size: 16px;
+    font-weight: 900;
+    opacity: .92;
+    margin-top: 4px;
+}
+
+.weatherHL {
+    font-size: 14px;
+    font-weight: 900;
+    opacity: .85;
+    margin-top: 6px;
+}
+
+.weatherMeta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    opacity: .9;
+    font-weight: 900;
+    font-size: 13px;
+}
+
+.weatherMetaItem {
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.weatherActions {
+    display: flex;
+    gap: 10px;
+}

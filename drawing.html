@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drawing</title>
+
+  <link rel="stylesheet" href="./css/tokens.css" />
+  <link rel="stylesheet" href="./css/fonts.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+
+  <link rel="stylesheet" href="./css/components/buttons.css" />
+
+  <link rel="stylesheet" href="./css/pages/drawing.css" />
+  <link rel="stylesheet" href="./css/pages/drawing.sidebar.css" />
+</head>
+
+<body class="drawingPage">
+  <main class="drawingWrap" aria-label="Drawing">
+    <section class="drawingWindow" role="application" aria-label="Drawing window">
+      <header class="drawingTitlebar">
+        <div class="drawingTitlebar__left">
+          <span class="drawingAppIcon" aria-hidden="true">✎</span>
+          <strong class="drawingTitle">Drawing</strong>
+        </div>
+
+        <div class="drawingTitlebar__right">
+          <button class="winBtn" type="button" aria-label="minimize">–</button>
+          <button class="winBtn winBtn--close" type="button" aria-label="close">×</button>
+        </div>
+      </header>
+
+      <div class="drawingBody">
+        <!-- CENTER PANEL -->
+        <section class="centerPanel" aria-label="canvas center">
+          <div class="panelHead">Canvas</div>
+
+          <div class="panelBody">
+            <div class="canvasShell">
+              <div class="canvasFrame">
+                <canvas id="canvas"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- RIGHT PANEL -->
+        <aside class="rightPanel" aria-label="right colors">
+          <div class="rightPanel__head">Colors</div>
+
+          <div class="rightPanel__inner">
+            <!-- color picker -->
+            <label class="rightColorBtn" title="Color Picker">
+              <input id="color" type="color" value="#452829" />
+              <span class="rightColorPreview" aria-hidden="true"></span>
+            </label>
+
+            <div class="rightToolsBox">
+              <div class="toolStack toolStack--right">
+                <button id="mode-btn" class="toolBtn toolBtn--active" type="button">
+                  <img class="toolIcon" src="./img/stroke.png" alt="stroke" />
+                </button>
+
+                <button id="eraser-btn" class="toolBtn" type="button">
+                  <img class="toolIcon" src="./img/fill.png" alt="fill" />
+                </button>
+
+                <button id="text-btn" class="toolBtn" type="button">
+                  <img class="toolIcon" src="./img/text.png" alt="text" />
+                </button>
+
+                <button id="undo-btn" class="toolBtn" type="button">
+                  <img class="toolIcon" src="./img/eraser.png" alt="eraser" />
+                </button>
+              </div>
+            </div>
+
+            <!-- palette -->
+            <div class="rightGrid" aria-label="right palette grid">
+              <button class="color-option rightSwatch" type="button" data-color="#e5a2a8"
+                style="background:#e5a2a8"></button>
+              <button class="color-option rightSwatch" type="button" data-color="#d79296"
+                style="background:#d79296"></button>
+              <button class="color-option rightSwatch" type="button" data-color="#f2c7c8"
+                style="background:#f2c7c8"></button>
+
+              <button class="color-option rightSwatch" type="button" data-color="#c78086"
+                style="background:#c78086"></button>
+              <button class="color-option rightSwatch" type="button" data-color="#8a5a63"
+                style="background:#8a5a63"></button>
+              <button class="color-option rightSwatch" type="button" data-color="#f6d8db"
+                style="background:#f6d8db"></button>
+
+              <button class="color-option rightSwatch" type="button" data-color="#8f5a65"
+                style="background:#8f5a65"></button>
+              <button class="color-option rightSwatch" type="button" data-color="#9a7a80"
+                style="background:#9a7a80"></button>
+              <button class="color-option rightSwatch" type="button" data-color="#6f6466"
+                style="background:#6f6466"></button>
+
+              <button class="color-option rightSwatch" type="button" data-color="#4e3b42"
+                style="background:#4e3b42"></button>
+              <button class="color-option rightSwatch" type="button" data-color="#7c6e72"
+                style="background:#7c6e72"></button>
+              <button class="color-option rightSwatch" type="button" data-color="#697585"
+                style="background:#697585"></button>
+
+              <button class="color-option rightSwatch" type="button" data-color="#d9d6db"
+                style="background:#d9d6db"></button>
+              <button class="color-option rightSwatch" type="button" data-color="#ffffff"
+                style="background:#ffffff"></button>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <footer class="drawingFooter">
+        <div class="miniPalette" aria-label="quick colors">
+          <button class="color-option miniSwatch" type="button" data-color="#f5c9c9"
+            style="background:#f5c9c9"></button>
+          <button class="color-option miniSwatch" type="button" data-color="#f6e59a"
+            style="background:#f6e59a"></button>
+          <button class="color-option miniSwatch" type="button" data-color="#cfe9c7"
+            style="background:#cfe9c7"></button>
+          <button class="color-option miniSwatch" type="button" data-color="#cfe4ff"
+            style="background:#cfe4ff"></button>
+          <button class="color-option miniSwatch" type="button" data-color="#d9ccff"
+            style="background:#d9ccff"></button>
+          <button class="color-option miniSwatch" type="button" data-color="#f3c6a2"
+            style="background:#f3c6a2"></button>
+          <button class="color-option miniSwatch" type="button" data-color="#e7d3c3"
+            style="background:#e7d3c3"></button>
+          <button class="color-option miniSwatch" type="button" data-color="#d6c4b0"
+            style="background:#d6c4b0"></button>
+          <button class="color-option miniSwatch" type="button" data-color="#2d2d2d"
+            style="background:#2d2d2d"></button>
+          <button class="color-option miniSwatch" type="button" data-color="#ffffff"
+            style="background:#ffffff"></button>
+        </div>
+
+        <div class="strokeBox">
+          <span class="dropIcon" aria-hidden="true">💧</span>
+          <input id="line-width" type="range" min="1" max="30" value="5" step="0.5" />
+        </div>
+
+        <div class="footerActions">
+          <label class="btn btn--light btn--sm" for="file" title="Add Photo">
+            Add Photo
+            <input id="file" type="file" accept="image/*" hidden />
+          </label>
+
+          <button id="destroy-btn" class="btn btn--light btn--sm" type="button">Reset</button>
+          <button id="save" class="btn btn--dark btn--sm" type="button">Save</button>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script type="module" src="./js/app/drawing.js"></script>
+</body>
+</html>

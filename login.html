@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Todo Login</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="./css/login.css" />
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/fonts.css">
+</head>
+
+<body>
+  <main class="loginCard" aria-label="Todo Login">
+    <header class="loginCard__header">
+      <div class="loginCard__avatar" aria-hidden="true">
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <h1 class="loginCard__title">TODO LIST</h1>
+    </header>
+
+    <section class="loginCard__chat" aria-label="Chat preview">
+      <div class="bubble bubble--bot">
+        <p class="bubble__text">Hello! <span aria-hidden="true">👋🏻</span></p>
+      </div>
+      <div class="bubble bubble--bot">
+        <p class="bubble__text">What's your name?</p>
+      </div>
+      <time class="loginCard__time" datetime="18:09">18:09</time>
+    </section>
+
+    <form id="login-form" class="loginCard__form hidden" autocomplete="off">
+      <label class="srOnly" for="login-name">name</label>
+
+      <input
+        id="login-name"
+        name="username"
+        required
+        maxlength="15"
+        type="text"
+        placeholder="Enter your name..."
+      />
+
+      <button type="submit" aria-label="Send">
+        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+      </button>
+    </form>
+
+    <p id="greeting" class="loginCard__greeting hidden" aria-live="polite"></p>
+  </main>
+
+  <script type="module" src="./js/app/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+.todoAdd{
+  --h: 70px;
+  --pad: 15px;
+  --radius: 999px;
+  --btn: 44px;
+
+  width: min(860px, 92vw);
+  height: var(--h);
+  display:flex;
+  align-items:center;
+  margin: 0 auto;
+  padding: var(--pad);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+
+  background: color-mix(in srgb, var(--bg-card) 70%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  box-shadow:
+    0 18px 36px rgba(0,0,0,0.14),
+    inset 0 1px 0 rgba(255,255,255,0.60),
+    inset 0 -3px 10px rgba(69,40,41,0.10);
+
+  position: relative;
+}
+
+.todoAdd::after{
+  content:"";
+  position:absolute;
+  left: 26px;
+  right: calc(26px + var(--btn) + var(--pad));
+  bottom: 14px;
+  border-bottom: 2px dotted color-mix(in srgb, var(--color-border) 70%, transparent);
+  opacity: .55;
+  pointer-events:none;
+}
+
+.todoAdd__input{
+  flex: 1;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding: 0 18px;
+
+  color: var(--color-text-primary);
+
+  /* 폰트는 base.css를 상속 */
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.2px;
+}
+
+.todoAdd__input::placeholder{
+  color: color-mix(in srgb, var(--color-text-secondary) 55%, transparent);
+  font-weight: 700;
+}
+
+.todoAdd__btn{
+  width: var(--btn);
+  height: var(--btn);
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  display:grid;
+  place-items:center;
+
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--color-primary) 70%, white) 0%,
+    var(--color-primary) 100%
+  );
+  color: #fff;
+
+  box-shadow:
+    0 12px 26px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.22),
+    inset 0 -3px 10px rgba(0,0,0,0.18);
+
+  transition: transform 120ms ease, filter 120ms ease, box-shadow 120ms ease;
+}
+
+.todoAdd__btn i{
+  font-size: 18px;
+  transform: translateY(-1px);
+}
+
+.todoAdd:focus-within{
+  border-color: color-mix(in srgb, var(--color-primary) 30%, var(--color-border));
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.16),
+    0 0 0 4px color-mix(in srgb, var(--color-accent) 22%, transparent),
+    inset 0 1px 0 rgba(255,255,255,0.60),
+    inset 0 -3px 10px rgba(69,40,41,0.10);
+}
+
+.todoAdd__btn:hover{ filter: brightness(1.04); }
+.todoAdd__btn:active{
+  transform: translateY(1px);
+  box-shadow:
+    0 9px 18px rgba(0,0,0,0.18),
+    inset 0 2px 12px rgba(0,0,0,0.22);
+}

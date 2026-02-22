@@ -1,0 +1,16 @@
+.iconImg{
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}
+
+.iconImg--md{
+  width: 70px;
+  height: 70px;
+}
+
+.iconImg--lg{
+  width: 100px;
+  height: 90px;
+}

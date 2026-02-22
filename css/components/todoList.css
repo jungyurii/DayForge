@@ -1,0 +1,150 @@
+.todoList{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.todoList li{
+  display: grid;
+  grid-template-columns: 46px 1fr 56px;
+  align-items: center;
+  gap: 14px;
+
+  padding: 14px 18px;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
+  background: color-mix(in srgb, var(--bg-card) 74%, white);
+
+  box-shadow:
+    0 16px 30px rgba(0,0,0,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.60);
+
+  position: relative;
+}
+
+/* 줄 내부 점선 */
+.todoList li::after{
+  content:"";
+  position: absolute;
+  left: 72px;
+  right: 86px;
+  bottom: 10px;
+  border-top: 2px dotted color-mix(in srgb, var(--color-border) 60%, transparent);
+  opacity: .65;
+}
+
+/* 텍스트 */
+.todoText{
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--color-text-primary);
+  letter-spacing: -0.2px;
+}
+
+.todoCheck{
+  width: 30px;
+  height: 30px;
+  justify-self: center;
+
+  border-radius: 8px;
+  border: 2px solid color-mix(in srgb, var(--color-border) 90%, transparent);
+  background: color-mix(in srgb, var(--bg-body) 45%, white);
+
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.75),
+    0 6px 12px rgba(0,0,0,0.08);
+
+  transition: transform .08s ease, filter .08s ease, background .12s ease, border-color .12s ease;
+}
+
+.todoCheck:hover{ filter: brightness(1.03); }
+.todoCheck:active{ transform: translateY(1px) scale(0.98); }
+
+.todoCheck i{
+  font-size: 16px;
+  color: var(--color-primary);
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity .12s ease, transform .12s ease;
+}
+
+/* 삭제 버튼 */
+.todoDel{
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  cursor: pointer;
+
+  background: color-mix(in srgb, #E9B27A 55%, var(--bg-card));
+  box-shadow:
+    0 12px 24px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.60);
+
+  font-size: 22px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+}
+
+.todoDel:hover{ filter: brightness(1.03); }
+.todoDel:active{ transform: translateY(1px); }
+
+.todoList li.isDone .todoCheck{
+  background: color-mix(in srgb, var(--color-accent) 45%, white);
+  border-color: color-mix(in srgb, var(--color-primary) 40%, var(--color-border));
+  animation: checkPop 220ms cubic-bezier(.2,.9,.2,1.2);
+}
+
+.todoList li.isDone .todoCheck i{
+  opacity: 1;
+  transform: scale(1);
+  animation: iconPop 240ms cubic-bezier(.2,.9,.2,1.2);
+}
+
+.todoList li.isDone .todoText{
+  color: color-mix(in srgb, var(--color-text-secondary) 75%, transparent);
+  text-decoration: line-through;
+  text-decoration-thickness: 3px;
+  text-decoration-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+  animation: textSettle 180ms ease-out;
+}
+
+@keyframes checkPop{
+  0%   { transform: scale(1); }
+  55%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+@keyframes iconPop{
+  0%   { transform: scale(0.7); opacity: 0; }
+  60%  { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes textSettle{
+  0%   { transform: translateY(-1px); }
+  100% { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .todoList li.isDone .todoCheck,
+  .todoList li.isDone .todoCheck i,
+  .todoList li.isDone .todoText{
+    animation: none !important;
+  }
+}
+
+@media (max-width: 720px){
+  .todoList li{
+    grid-template-columns: 40px 1fr 52px;
+    padding: 12px 14px;
+  }
+  .todoText{ font-size: 16px; }
+}

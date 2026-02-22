@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+
+    <link rel="stylesheet" href="./css/tokens.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+
+    <link rel="stylesheet" href="./css/pages/todo.css" />
+    <link rel="stylesheet" href="./css/components/todoInput.css" />
+    <link rel="stylesheet" href="./css/components/todoList.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body class="todoPage">
+    <main class="todoWrap">
+        <header class="todoHeader">
+            <button id="clear-all" class="roundIconBtn roundIconBtn--amber" type="button" aria-label="전체 삭제">
+                <i class="fa-regular fa-trash-can"></i>
+            </button>
+
+            <div class="todoTitleBox">
+                <h1 class="todoTitle">Todo List</h1>
+                <div class="titleLine" aria-hidden="true"></div>
+
+                <div class="datePill" id="todo-date" aria-label="today">
+                    0000. 00. 00
+                </div>
+            </div>
+
+            <button class="roundIconBtn roundIconBtn--pink" type="button" aria-label="send">
+                <span aria-hidden="true">✈️</span>
+            </button>
+        </header>
+
+        <section class="todoComposer" aria-label="add todo">
+            <form id="todo-form" class="todoAdd" autocomplete="off">
+                <input class="todoAdd__input" type="text" placeholder="추가할 내용을 입력하세요..." required />
+                <button class="todoAdd__btn" type="submit" aria-label="add todo">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </form>
+
+            <!-- 점선 구분선 -->
+            <div class="dashLine" aria-hidden="true"></div>
+        </section>
+
+        <section class="todoBoard" aria-label="todo board">
+            <ul id="todo-list" class="todoList"></ul>
+        </section>
+    </main>
+
+    <script type="module" src="./js/app/todo.js"></script>
+</body>
+
+</html>

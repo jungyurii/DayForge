@@ -1,0 +1,15 @@
+:root {
+  --bg-body: #FAF7F3;   /* background */
+  --bg-card: #F3E8DF;   /* card / todo / memo */
+
+  --color-primary: #452829; /* main button / key accent */
+  --color-accent: #D9A299;  /* secondary accent */
+
+  --color-surface-1: #F0E4D3; /* hover / sub bg */
+  --color-surface-2: #E8D1C5; /* active / emphasis */
+
+  --color-border: #DCC5B2; /* divider / outline */
+
+  --color-text-primary: #452829; /* main text */
+  --color-text-secondary: #57595B; /* sub text */
+}

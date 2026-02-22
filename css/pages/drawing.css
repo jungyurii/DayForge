@@ -1,0 +1,256 @@
+.drawingPage {
+  min-height: 100vh;
+  background: var(--bg-body);
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* 종이/유리 느낌 */
+.drawingPage::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(1200px 760px at 50% 0%, rgba(255, 255, 255, .55), transparent 55%),
+    radial-gradient(900px 640px at 15% 30%, rgba(255, 255, 255, .26), transparent 62%),
+    radial-gradient(900px 640px at 85% 25%, rgba(255, 255, 255, .22), transparent 62%);
+  opacity: .95;
+}
+
+.drawingWrap {
+  width: min(1320px, 95vw);
+  margin: 0 auto;
+  padding: 34px 0;
+}
+
+.drawingWindow {
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  border: 1px solid color-mix(in srgb, var(--color-border) 85%, transparent);
+  background: color-mix(in srgb, var(--bg-card) 78%, white);
+  box-shadow:
+    0 26px 60px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  overflow: hidden;
+}
+
+.drawingTitlebar {
+  height: 56px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 65%, transparent);
+  background: color-mix(in srgb, var(--bg-card) 82%, white);
+}
+
+.drawingTitlebar__left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-text-primary);
+}
+
+.drawingAppIcon {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  background: color-mix(in srgb, var(--bg-card) 85%, white);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+
+.drawingTitle {
+  font-weight: 900;
+  letter-spacing: -0.2px;
+}
+
+.drawingTitlebar__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.winBtn {
+  width: 44px;
+  height: 30px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  background: color-mix(in srgb, var(--bg-card) 86%, white);
+  cursor: pointer;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.winBtn--close {
+  width: 46px;
+  background: color-mix(in srgb, var(--color-accent) 35%, var(--bg-card));
+}
+
+.drawingBody {
+  min-height: 0;
+  padding: 18px;
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) 300px;
+
+  gap: 18px;
+  align-items: stretch;
+}
+
+.centerPanel {
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--color-border) 75%, transparent);
+  background: color-mix(in srgb, var(--bg-card) 82%, white);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.panelHead {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 900;
+  letter-spacing: -0.2px;
+  color: color-mix(in srgb, var(--color-text-primary) 85%, white);
+
+  background: linear-gradient(180deg,
+      color-mix(in srgb, var(--bg-card) 55%, white) 0%,
+      color-mix(in srgb, var(--color-surface-1) 55%, white) 100%);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.panelBody{
+  flex: 1;
+  min-height: 0;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+}
+
+.canvasShell {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  background: color-mix(in srgb, var(--bg-card) 86%, white);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  padding: 14px;
+
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.canvasFrame{
+  width: 100%;
+  height: clamp(520px, 62vh, 780px);
+  min-height: 0;
+
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--color-border) 85%, transparent);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  padding: 18px;
+
+  display: flex;
+}
+
+.canvasFrame canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.drawingFooter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border-top: 1px solid color-mix(in srgb, var(--color-border) 65%, transparent);
+  background: color-mix(in srgb, var(--bg-card) 82%, white);
+}
+
+.miniPalette {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.miniSwatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+.strokeBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  justify-content: center;
+  min-width: 240px;
+}
+
+.dropIcon { opacity: .85; }
+
+#line-width {
+  width: min(520px, 55vw);
+  accent-color: var(--color-primary);
+}
+
+.footerActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 1020px) {
+  .drawingBody {
+    grid-template-columns: minmax(0, 1fr) 260px;
+  }
+  #line-width { width: 42vw; }
+}
+
+@media (max-width: 860px) {
+  .drawingBody {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+  .rightPanel { grid-column: 1 / -1; }
+}
+
+.toolIcon{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
