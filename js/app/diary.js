@@ -90,6 +90,13 @@ initDiaryColorPopover({
   isOpen: () => isPaletteOpen(),
 });
 
+toolPen?.addEventListener("click", () => {
+  setTool("pen");
+});
+
+toolHi?.addEventListener("click", () => {
+  setTool("hi");
+});
 
 // runtime
 let doodleImg = null;
