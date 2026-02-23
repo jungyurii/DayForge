@@ -4,6 +4,9 @@ Drawing, Diary, Todo 기능을 포함한
 감성 UI 기반의 멀티 페이지 웹 애플리케이션입니다.  
 부드러운 파스텔 톤 UI와 직관적인 도구 배치를 목표로 제작했습니다.
 
+🌐 Live Demo  
+https://jungyurii.github.io/DayForge/
+
 ---
 
 ## ✨ Features
