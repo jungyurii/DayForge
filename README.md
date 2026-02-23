@@ -65,11 +65,11 @@ Drawing, Diary, Todo 기능을 포함한
 ![Main](./img/screenshots/main_2.png)
 
 ### Drawing
-![Drawing](./img/screenshots/drawing.png)
+![Drawing](./img/screenshots/drawing_1.png)
+![Drawing](./img/screenshots/drawing_2.png)
 
 ### Diary
-![Diary](./img/screenshots/drawing_1.png)
-![Diary](./img/screenshots/drawing_2.png)
+![Diary](./img/screenshots/diary.png)
 
 ### Todo
 ![Todo](./img/screenshots/todo.png)
