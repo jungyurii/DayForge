@@ -54,8 +54,30 @@ Drawing, Diary, Todo 기능을 포함한
 
 ---
 
+## 📸 Screenshots
+
+### login
+![Login](./img/screenshots/login.png)
+
+### Main
+![Main](./img/screenshots/main_1.png)
+![Main](./img/screenshots/main_2.png)
+
+### Drawing
+![Drawing](./img/screenshots/drawing.png)
+
+### Diary
+![Diary](./img/screenshots/drawing_1.png)
+![Diary](./img/screenshots/drawing_2.png)
+
+### Todo
+![Todo](./img/screenshots/todo.png)
+
+---
+
 ## 🚀 How to Run
 
 ```bash
 # 로컬 서버 권장 (모듈 사용)
 npx serve
+```
